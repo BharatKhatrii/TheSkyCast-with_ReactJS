@@ -54,7 +54,7 @@ export default function Weatherinfo(props) {
           <div id="item-1">
             <span id="name" style={{ fontSize: "1.4rem" }}>
               {" "}
-              {capitalizeFirstLetter(weatherData?.address)}
+              {capitalizeFirstLetter(weatherData?.resolvedAddress)}
             </span>
             <span id="localtime">{hours_min(current?.datetime)}</span>
           </div>
@@ -129,11 +129,10 @@ export default function Weatherinfo(props) {
             <a
               id="map"
               target="_blank"
-              href={`http://maps.google.com/?q=${weatherData?.lat},${weatherData?.lon}`}
+              href={`http://maps.google.com/?q=${weatherData?.latitude},${weatherData?.longitude}`}
               rel="noopener noreferrer"
             >
-              {" "}
-              Find NearBy Location
+              {"Find NearBy Location"}
             </a>
           </div>
         </div>

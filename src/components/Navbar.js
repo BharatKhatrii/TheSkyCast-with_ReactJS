@@ -16,9 +16,26 @@ export default function Navbar() {
   const {city, setCity} = useSearchContext('');
 
   useEffect(() => {
+        
     setInterval(() => {
       setTime(getFormattedTime);
     }, 1000);
+  }, [])
+  
+  useEffect(() => {
+    
+    const handleResize = () => {
+      const input = document.getElementById('cityName');
+      const placeholder = input.placeholder;
+
+      if (window.innerWidth <= 600) {
+        input.placeholder = "Search..";
+      } else {
+        input.placeholder = placeholder;
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
   },[]);
 
   const handleOnChange = (event) => {
